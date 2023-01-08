@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public final class ConnectionHelper {
-    private static final String url = "jdbc:postgresql://127.0.0.1:5432/TPD";
+    private static final String url = "jdbc:postgresql://127.0.0.1:5432/TPD_DB";
     private static final String user = "postgres";
-    private static final String password = "postgres";
+    private static final String password = "admin";
 
     public static Connection getConnection() {
         Connection connection = null;
