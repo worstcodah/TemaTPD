@@ -1,6 +1,8 @@
 package com.example.tpd_client.controllers;
 
+import com.example.tpd_client.data_access.UserMotorcycleDAO;
 import com.example.tpd_client.models.User;
+import com.example.tpd_client.models.UserMotorcycle;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,6 +23,8 @@ public class HomeServlet extends HttpServlet {
 //            resp.sendRedirect(req.getContextPath() + "/");
 //            return;
 //        }
+        String username = req.getSession().getAttribute("username").toString();
+        //req.setAttribute("motorcycle list", motorcycles);
         req.getRequestDispatcher("/home.jsp").forward(req, resp);
     }
 

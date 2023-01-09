@@ -43,6 +43,7 @@ public class LoginServlet extends HttpServlet {
 
 //            request.getRequestDispatcher("/hello.jsp").forward(request, response);
 //            response.sendRedirect(request.getContextPath() + "/hello");
+            //request.getSession().setAttribute("username", );
             response.sendRedirect(request.getContextPath() + "/home");
         } else if (button.equals("register")) {
             request.getSession().removeAttribute("username");
@@ -57,8 +58,8 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        request.setAttribute("username", username);
-        request.setAttribute("password", password);
+        request.getSession().setAttribute("username", username);
+        request.getSession().setAttribute("password", password);
 
         if (username.isEmpty() || password.isEmpty()) {
             return "All fields must be filled";
@@ -75,6 +76,7 @@ public class LoginServlet extends HttpServlet {
             return "No user with given username or password";
         }
 
+        request.getSession().setAttribute("userId", user.getId());
         return null;
     }
 }

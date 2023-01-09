@@ -1,0 +1,13 @@
+.center {
+    text-align: center;
+}
+body {
+    background: silver;
+}
+
+.motorcycle-list{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

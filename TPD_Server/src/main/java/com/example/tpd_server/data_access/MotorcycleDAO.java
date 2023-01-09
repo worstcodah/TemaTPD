@@ -14,7 +14,7 @@ public class MotorcycleDAO {
         ArrayList<Motorcycle> result = new ArrayList<>();
 
         try (Connection conn = ConnectionHelper.getConnection();
-             PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM public.\"Motorcycle\"")) {
+             PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM public.\"Motorcycles\"")) {
 
             ResultSet resultSet = preparedStatement.executeQuery();
 

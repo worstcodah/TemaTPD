@@ -10,6 +10,7 @@ import jakarta.ws.rs.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Path("/user-motorcycles")
 public class UserMotorcycleController {
     private static final UserMotorcycleService userMotorcycleService = new UserMotorcycleService();
 

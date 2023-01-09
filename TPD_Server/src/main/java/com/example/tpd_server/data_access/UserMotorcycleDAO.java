@@ -17,7 +17,7 @@ public class UserMotorcycleDAO {
         ArrayList<UserMotorcycle> result = new ArrayList<>();
 
         try (Connection conn = ConnectionHelper.getConnection();
-             PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM public.\"UserMotorcycle\"")) {
+             PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM public.\"UserMotorcycles\"")) {
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -35,7 +35,7 @@ public class UserMotorcycleDAO {
         return result;
     }
     public static List<Motorcycle> getMotorcyclesForUser(int userId){
-        List<UserMotorcycle> ownedMotorcycles = UserMotorcycleDAO.getAll().stream().filter(userMotorcycle -> userMotorcycle.getUserId() == userId).toList();
+        List<UserMotorcycle> ownedMotorcycles = UserMotorcycleDAO.getAll().stream().filter(userMotorcycle -> userMotorcycle.getUserId() == userId).collect(Collectors.toList());
         List<Motorcycle> motorcycles = new ArrayList<>();
         for(UserMotorcycle userMotorcycle: ownedMotorcycles){
            motorcycles.add(MotorcycleDAO.get(userMotorcycle.getMotorcycleId()));
