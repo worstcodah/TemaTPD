@@ -2,6 +2,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<style><%@include file="/css/login.css"%></style>
 <head>
   <title>Login</title>
   <%--        <jsp:include page="utils/bootstrap.jsp"/>--%>
@@ -10,7 +11,8 @@
   <link href="utils/alert_box.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div class="center_top">
+
+<div class="wrapper">
   <H1 class="title">LOGIN</H1>
   <form method="post" action="${pageContext.request.contextPath}/login">
     <table>
@@ -40,7 +42,6 @@
       </p>
     </div>
     <button name="button" type="submit" value="register">Register</button>
-    <button name="button" type="submit" value="forgotPassword" class="button_link">Forgot Password</button>
   </form>
 
 </div>
