@@ -50,8 +50,7 @@
             <div class="cell" data-title="#"><%= i++%></div>
             <div class="cell" data-title="Brand"><%= motorcycle.getBrand()%></div>
             <div class="cell" data-title="Year of production"><%= motorcycle.getYearOfProduction()%></div>
-            <div class="cell" data-title="Delete entry"><button onclick="<%UserMotorcycleDAO.delete((int)request.getSession().getAttribute("userId"), motorcycle.getId());
-            %>">Delete</button></div>
+            <div class="cell" data-title="Delete entry"><button>">Delete</button></div>
         </div>
         <%
             }

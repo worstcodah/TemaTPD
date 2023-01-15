@@ -50,7 +50,9 @@ public class UserMotorcycleDAO {
         }
 
         try (Connection conn = ConnectionHelper.getConnection();
-             PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO public.\"UserMotorcycles\"(\"userId\", \"motorcycleId\") VALUES (?, ?)")) {
+             PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO public.\"UserMotorcycles\"(\n" +
+                     "\t\"userId\", \"motorcycleId\")\n" +
+                     "\tVALUES (?, ?);")) {
 
             preparedStatement.setInt(1, userMotorcycle.getUserId());
             preparedStatement.setInt(2, userMotorcycle.getMotorcycleId());
