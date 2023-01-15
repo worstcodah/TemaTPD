@@ -46,11 +46,19 @@ public class LoginServlet extends HttpServlet {
             //request.getSession().setAttribute("username", );
             response.sendRedirect(request.getContextPath() + "/home");
         } else if (button.equals("register")) {
-            request.getSession().removeAttribute("username");
-            response.sendRedirect(request.getContextPath() + "/register");
-        } else if (button.equals("forgotPassword")) {
-            request.getSession().setAttribute("username", request.getParameter("username"));
-            response.sendRedirect(request.getContextPath() + "/forgot-password");
+            String errorMessage = null;
+            try {
+                errorMessage = tryToRegister(request);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+            if (errorMessage != null) {
+                request.setAttribute("errorMessage", errorMessage);
+                request.getRequestDispatcher("/login").forward(request, response);
+                return;
+            }
+            response.sendRedirect(request.getContextPath() + "/home");
         }
     }
 
@@ -74,6 +82,29 @@ public class LoginServlet extends HttpServlet {
 
         if (user == null) {
             return "No user with given username or password";
+        }
+
+        request.getSession().setAttribute("userId", user.getId());
+
+        return null;
+    }
+
+    private String tryToRegister(HttpServletRequest request) throws IOException, InterruptedException {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+
+        request.getSession().setAttribute("username", username);
+        request.getSession().setAttribute("password", password);
+
+        if (username.isEmpty() || password.isEmpty()) {
+            return "All fields must be filled";
+        }
+
+        User user = new User(UserDAO.getAllUsers().size() + 1,username, password);
+        try {
+            UserDAO.add(user);
+        } catch (IOException | InterruptedException e) {
+            return e.toString();
         }
 
         request.getSession().setAttribute("userId", user.getId());

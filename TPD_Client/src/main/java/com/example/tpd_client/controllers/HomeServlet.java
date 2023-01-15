@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import java.awt.*;
 import java.io.IOException;
 
 @WebServlet(name = "homeServlet", value = "/home")
@@ -24,12 +25,18 @@ public class HomeServlet extends HttpServlet {
 //            return;
 //        }
         String username = req.getSession().getAttribute("username").toString();
-        //req.setAttribute("motorcycle list", motorcycles);
+
         req.getRequestDispatcher("/home.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String button = req.getParameter("button");
+        if (button.equals("logout")) {
+            resp.sendRedirect(req.getContextPath() + "/login");
+        } else if (button.equals("manage-motorcycles")) {
+            resp.sendRedirect(req.getContextPath() + "/manage-motorcycles");
+        }
 //        super.doPost(req, resp);
 
     }

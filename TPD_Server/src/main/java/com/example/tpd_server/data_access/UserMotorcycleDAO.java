@@ -50,13 +50,29 @@ public class UserMotorcycleDAO {
         }
 
         try (Connection conn = ConnectionHelper.getConnection();
-             PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO public.\"UserMotorcycles\"(userId, motorcycleId) VALUES (?, ?)")) {
+             PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO public.\"UserMotorcycles\"(\"userId\", \"motorcycleId\") VALUES (?, ?)")) {
 
             preparedStatement.setInt(1, userMotorcycle.getUserId());
             preparedStatement.setInt(2, userMotorcycle.getMotorcycleId());
 
             preparedStatement.execute();
 
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void delete(int userId, int motorcycleId) {
+
+        try (Connection conn = ConnectionHelper.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM public.\"UserMotorcycles\" WHERE \"userId\" = ? AND \"motorcycleId\" = ?")) {
+
+            preparedStatement.setInt(1, userId);
+            preparedStatement.setInt(2, motorcycleId);
+
+            preparedStatement.execute();
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
         } catch (Exception e) {

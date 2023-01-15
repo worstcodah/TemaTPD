@@ -5,3 +5,22 @@
     align-items: center;
     justify-content: center;
 }
+
+.form-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+}
+
+.form-button{
+    border-radius: 4px;
+    background: black;
+    color: white;
+}
+
+.form-button:hover{
+    background: white;
+    color: black;
+}

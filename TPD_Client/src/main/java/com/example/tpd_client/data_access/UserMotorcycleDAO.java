@@ -57,4 +57,14 @@ public class UserMotorcycleDAO {
                 .build();
         client.send(request, HttpResponse.BodyHandlers.ofString());
     }
+
+    public static void delete(int userId, int motorcycleId) throws IOException, InterruptedException {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:8080/TPD_Server-1.0-SNAPSHOT/api/user-motorcycles/" +
+                        userId + "/" + motorcycleId))
+                .DELETE()
+                .header("Accept", "application/json")
+                .build();
+        client.send(request, HttpResponse.BodyHandlers.ofString());
+    }
 }

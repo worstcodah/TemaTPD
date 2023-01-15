@@ -1,7 +1,6 @@
 package com.example.tpd_client.data_access;
 
 import com.example.tpd_client.models.Motorcycle;
-import com.example.tpd_client.models.User;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 public final class MotorcycleDAO {
     private final static HttpClient client = HttpClient.newHttpClient();
 
-    public static ArrayList<Motorcycle> getAllUsers() throws IOException, InterruptedException {
+    public static ArrayList<Motorcycle> getAllMotorcycles() throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:8080/TPD_Server-1.0-SNAPSHOT/api/motorcycles"))
                 .header("Accept", "application/json")
@@ -51,6 +50,16 @@ public final class MotorcycleDAO {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:8080/TPD_Server-1.0-SNAPSHOT/api/motorcycles"))
                 .POST(HttpRequest.BodyPublishers.ofString(json))
+                .header("Accept", "application/json")
+                .build();
+        client.send(request, HttpResponse.BodyHandlers.ofString());
+    }
+
+    public static void delete(Motorcycle motorcycle) throws IOException, InterruptedException {
+        ObjectMapper mapper = new ObjectMapper();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:8080/TPD_Server-1.0-SNAPSHOT/api/motorcycles/" + motorcycle.getId()))
+                .DELETE()
                 .header("Accept", "application/json")
                 .build();
         client.send(request, HttpResponse.BodyHandlers.ofString());

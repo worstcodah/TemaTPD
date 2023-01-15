@@ -30,4 +30,11 @@ public class MotorcycleController {
     public void add(String response) {
         motorcycleService.add(response);
     }
+
+    @DELETE
+    @Consumes("application/json")
+    @Path("/{motorcycleId}")
+    public void delete(@PathParam("motorcycleId") int motorcycleId){
+        motorcycleService.delete(motorcycleId);
+    }
 }

@@ -66,10 +66,11 @@ public final class UserDAO {
         }
 
         try (Connection conn = ConnectionHelper.getConnection();
-             PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO public.\"Users\"(username, password) VALUES (?, ?)")) {
+             PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO public.\"Users\"(id, username, password) VALUES (?, ?, ?)")) {
 
-            preparedStatement.setString(1, user.getUsername());
-            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setInt(1, user.getId());
+            preparedStatement.setString(2, user.getUsername());
+            preparedStatement.setString(3, user.getPassword());
 
             preparedStatement.execute();
 

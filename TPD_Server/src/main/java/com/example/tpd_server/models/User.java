@@ -1,6 +1,11 @@
 package com.example.tpd_server.models;
 
-public class User {
+import com.example.tpd_server.interfaces.UserInterface;
+
+import javax.ejb.Stateless;
+
+@Stateless
+public class User implements UserInterface {
     private int id;
     private String username;
     private String password;

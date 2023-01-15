@@ -4,6 +4,9 @@ public class UserMotorcycle {
     private int userId;
     private int motorcycleId;
 
+    public UserMotorcycle(){
+
+    }
     public UserMotorcycle(int userId, int motorcycleId) {
         this.userId = userId;
         this.motorcycleId = motorcycleId;

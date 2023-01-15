@@ -63,10 +63,29 @@ public class MotorcycleDAO {
         }
 
         try (Connection conn = ConnectionHelper.getConnection();
-             PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO public.\"Motorcycles\"(brand, yearOfProduction) VALUES (?, ?)")) {
+             PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO public.\"Motorcycles\"(\n" +
+                     "\tid, brand, \"yearOfProduction\")\n" +
+                     "\tVALUES (?, ?, ?);")) {
 
-            preparedStatement.setString(1, motorcycle.getBrand());
-            preparedStatement.setInt(2, motorcycle.getYearOfProduction());
+            preparedStatement.setInt(1, motorcycle.getId());
+            preparedStatement.setString(2, motorcycle.getBrand());
+            preparedStatement.setInt(3, motorcycle.getYearOfProduction());
+
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void delete(int motorcycleId) {
+
+        try (Connection conn = ConnectionHelper.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM public.\"Motorcycles\" WHERE id = ?")) {
+
+            preparedStatement.setInt(1, motorcycleId);
 
             preparedStatement.execute();
 

@@ -1,9 +1,17 @@
 package com.example.tpd_server.models;
 
-public class Motorcycle {
+import com.example.tpd_server.interfaces.MotorcycleInterface;
+
+import javax.ejb.Stateless;
+
+@Stateless
+public class Motorcycle implements MotorcycleInterface {
     private int id;
     private String brand;
 
+    public Motorcycle(){
+
+    }
     public Motorcycle(int id, String brand, int yearOfProduction) {
         this.id = id;
         this.brand = brand;

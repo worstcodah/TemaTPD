@@ -32,10 +32,22 @@ public class UserMotorcycleService {
 
         ObjectMapper mapper = new ObjectMapper();
         try {
-            UserMotorcycle userMotorcycle = mapper.readValue(response, new TypeReference<UserMotorcycle>() {
+            UserMotorcycle userMotorcycle = mapper.readValue(response, new TypeReference<>() {
             });
             UserMotorcycleDAO.add(userMotorcycle);
         } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void delete(int userId, int motorcycleId) {
+        if (userId < 0 || motorcycleId < 0) {
+            return;
+        }
+
+        try {
+            UserMotorcycleDAO.delete(userId, motorcycleId);
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

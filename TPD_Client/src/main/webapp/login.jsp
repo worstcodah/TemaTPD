@@ -30,18 +30,16 @@
       </tr>
     </table>
 <%--    <button name="button" type="submit" value="login">Login</button>--%>
-    <div class="text-center text-lg-start mt-4 pt-2">
-      <button class="btn btn-primary btn-lg" value="login" name="button"
+    <div class="text-center text-lg-start mt-4 pt-2 form-buttons">
+      <button class="form-button" value="login" name="button"
               style="padding-left: 2.5rem; padding-right: 2.5rem;"
               type="submit">
         Log In
       </button>
 
-      <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account?
-        <a href="/register" class="link-danger">Register</a>
-      </p>
+      <button class="form-button" name="button" type="submit" value="register">Register</button>
+
     </div>
-    <button name="button" type="submit" value="register">Register</button>
   </form>
 
 </div>
