@@ -31,7 +31,10 @@
                     </td>
                 </tr>
             </table>
-            <button class="form-button" name="button" type="submit" value="add-motorcycle">Add motorcycle</button>
+            <div class="buttons">
+                <button class="form-button" name="button" type="submit" value="add-motorcycle">Add motorcycle</button>
+                <button role="button" class="form-button" name="button" type="submit" value="home">Back to home</button>
+            </div>
         </form>
     </div>
 </div>

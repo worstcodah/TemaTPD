@@ -30,6 +30,10 @@ public class ManageMotorcycleServlet extends HttpServlet {
         if (button == null) {
             return;
         }
+        if(button.equals("home")){
+            response.sendRedirect(request.getContextPath() + "/home");
+        }
+
         if (button.equals("add-motorcycle")) {
             try {
                 TryToAddMotorcycle(request);

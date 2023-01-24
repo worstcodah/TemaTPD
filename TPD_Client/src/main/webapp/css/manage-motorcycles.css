@@ -31,6 +31,12 @@ tr > td{
     color: black;
 }
 
+.buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+}
+
 label {
     display: inline-block;
     width: 15vw;
