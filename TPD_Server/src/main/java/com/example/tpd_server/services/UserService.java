@@ -27,7 +27,7 @@ public class UserService {
 
         ObjectMapper mapper = new ObjectMapper();
         try {
-            User user = mapper.readValue(response, new TypeReference<User>() {
+            User user = mapper.readValue(response, new TypeReference<>() {
             });
             UserDAO.add(user);
         } catch (JsonProcessingException e) {

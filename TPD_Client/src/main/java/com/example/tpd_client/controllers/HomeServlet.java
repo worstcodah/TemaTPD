@@ -1,5 +1,6 @@
 package com.example.tpd_client.controllers;
 
+import com.example.tpd_client.data_access.MotorcycleDAO;
 import com.example.tpd_client.data_access.UserMotorcycleDAO;
 import com.example.tpd_client.models.User;
 import com.example.tpd_client.models.UserMotorcycle;
@@ -17,15 +18,25 @@ public class HomeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        super.doGet(req, resp);
         System.out.println("HOME SERVLET - GET METHOD");
-//        User loggedUser = (User) req.getSession().getAttribute(ControllerUtils.loggedUser);
-//        if (loggedUser == null) {
-//            resp.sendRedirect(req.getContextPath() + "/");
-//            return;
-//        }
+        String btnValue = req.getParameter("delete");
+        if (btnValue != null) {
+            doDelete(req, resp);
+        }
         String username = req.getSession().getAttribute("username").toString();
 
+        req.getRequestDispatcher("/home.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int userId = Integer.parseInt(req.getSession().getAttribute("userId").toString());
+        int motorcycleId = Integer.parseInt(req.getParameter("delete"));
+        try {
+            UserMotorcycleDAO.delete(userId, motorcycleId);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         req.getRequestDispatcher("/home.jsp").forward(req, resp);
     }
 
