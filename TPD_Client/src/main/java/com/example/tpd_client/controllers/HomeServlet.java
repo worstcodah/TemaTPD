@@ -48,7 +48,5 @@ public class HomeServlet extends HttpServlet {
         } else if (button.equals("manage-motorcycles")) {
             resp.sendRedirect(req.getContextPath() + "/manage-motorcycles");
         }
-//        super.doPost(req, resp);
-
     }
 }

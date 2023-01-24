@@ -41,9 +41,6 @@ public class LoginServlet extends HttpServlet {
                 return;
             }
 
-//            request.getRequestDispatcher("/hello.jsp").forward(request, response);
-//            response.sendRedirect(request.getContextPath() + "/hello");
-            //request.getSession().setAttribute("username", );
             response.sendRedirect(request.getContextPath() + "/home");
         } else if (button.equals("register")) {
             String errorMessage = null;
@@ -100,7 +97,7 @@ public class LoginServlet extends HttpServlet {
             return "All fields must be filled";
         }
 
-        User user = new User(UserDAO.getAllUsers().size() + 1,username, password);
+        User user = new User(UserDAO.getAllUsers().size() + 1, username, password);
         try {
             UserDAO.add(user);
         } catch (IOException | InterruptedException e) {

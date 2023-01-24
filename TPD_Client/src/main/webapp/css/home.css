@@ -5,7 +5,7 @@ body {
     background: silver;
 }
 
-.buttons{
+.buttons-form{
     display: flex;
     flex-direction: row;
     margin-top: 60vh;
@@ -14,6 +14,11 @@ body {
 
 a{
     text-decoration: none;
+}
+
+.delete-span{
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .blue-button:focus {

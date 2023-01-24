@@ -57,7 +57,7 @@
             </div>
             <div class="cell" data-title="Delete">
                 <form method="delete" action="${pageContext.request.contextPath}/home">
-                    <button name="delete" value="<%= motorcycle.getId() %>" type="submit">Delete</button>
+                    <button name="delete" value="<%= motorcycle.getId() %>" type="submit"><span class="delete-span"> X </span></button>
                 </form>
             </div>
         </div>
@@ -78,7 +78,7 @@
     </div>
 </div>
 <div class="buttons">
-    <form method="post" action="${pageContext.request.contextPath}/home">
+    <form method="post" class="buttons-form" action="${pageContext.request.contextPath}/home">
         <button role="button" class="blue-button" name="button" type="submit" value="logout">Log out</button>
         <button role="button" class="button-orange" type="submit" name="button" value="manage-motorcycles">Manage
             motorcycle list
