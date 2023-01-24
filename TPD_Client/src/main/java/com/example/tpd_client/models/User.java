@@ -1,6 +1,10 @@
 package com.example.tpd_client.models;
 
-public class User {
+import javax.ejb.Stateless;
+import java.io.Serializable;
+
+@Stateless
+public class User implements Serializable {
     private int id;
     private String username;
     private String password;

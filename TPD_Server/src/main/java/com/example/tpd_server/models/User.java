@@ -3,9 +3,10 @@ package com.example.tpd_server.models;
 import com.example.tpd_server.interfaces.UserInterface;
 
 import javax.ejb.Stateless;
+import java.io.Serializable;
 
 @Stateless
-public class User implements UserInterface {
+public class User implements UserInterface, Serializable {
     private int id;
     private String username;
     private String password;

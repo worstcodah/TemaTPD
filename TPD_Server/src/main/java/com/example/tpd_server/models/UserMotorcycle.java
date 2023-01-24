@@ -3,9 +3,10 @@ package com.example.tpd_server.models;
 import com.example.tpd_server.interfaces.UserMotorcycleInterface;
 
 import javax.ejb.Stateless;
+import java.io.Serializable;
 
 @Stateless
-public class UserMotorcycle implements UserMotorcycleInterface {
+public class UserMotorcycle implements UserMotorcycleInterface, Serializable {
     private int userId;
     private int motorcycleId;
 
