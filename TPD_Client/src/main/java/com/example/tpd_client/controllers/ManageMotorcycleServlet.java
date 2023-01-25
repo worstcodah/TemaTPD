@@ -41,6 +41,7 @@ public class ManageMotorcycleServlet extends HttpServlet {
                 throw new RuntimeException(e);
             }
 
+    
             response.sendRedirect(request.getContextPath() + "/home");
         }
     }

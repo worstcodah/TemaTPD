@@ -1,4 +1,4 @@
-package com.example.tpd_server.interfaces;
+package com.example.tpd_client.interfaces;
 
 import javax.ejb.Local;
 
