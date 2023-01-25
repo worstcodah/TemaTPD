@@ -1,8 +1,8 @@
 package com.example.tpd_server.interfaces;
 
-import javax.ejb.Local;
+import javax.ejb.Remote;
 
-@Local
+@Remote
 public interface UserInterface {
     int getId();
     void setId(int id);

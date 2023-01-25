@@ -35,13 +35,17 @@ public class ManageMotorcycleServlet extends HttpServlet {
         }
 
         if (button.equals("add-motorcycle")) {
+            String result;
             try {
-                TryToAddMotorcycle(request);
+                result = TryToAddMotorcycle(request);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
 
-    
+            if(result != null) {
+                System.err.println(result);
+            }
+
             response.sendRedirect(request.getContextPath() + "/home");
         }
     }
@@ -70,7 +74,7 @@ public class ManageMotorcycleServlet extends HttpServlet {
             MotorcycleDAO.add(newMotorcycle);
             motorcycleId = allMotorcycles.size() + 1;
         }
-        else{
+        else {
             motorcycleId = motorcycle.get().getId();
         }
         UserMotorcycle newUserMotorcycle = new UserMotorcycle(userId, motorcycleId);
