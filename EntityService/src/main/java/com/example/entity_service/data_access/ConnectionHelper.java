@@ -1,4 +1,4 @@
-package com.example.tpd_server.data_access;
+package com.example.entity_service.data_access;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
