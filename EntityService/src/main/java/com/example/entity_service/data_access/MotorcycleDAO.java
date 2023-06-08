@@ -1,5 +1,6 @@
 package com.example.entity_service.data_access;
 
+import com.example.connection_package.ConnectionHelper;
 import com.example.entity_service.models.Motorcycle;
 
 import java.sql.Connection;

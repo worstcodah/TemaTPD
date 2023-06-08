@@ -1,5 +1,6 @@
 package com.example.login_service.data_access;
 
+import com.example.connection_package.ConnectionHelper;
 import com.example.login_service.models.User;
 
 import java.io.IOException;
