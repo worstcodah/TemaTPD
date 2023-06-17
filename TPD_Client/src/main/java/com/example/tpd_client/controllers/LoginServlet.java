@@ -1,7 +1,9 @@
 package com.example.tpd_client.controllers;
 
+import com.example.tpd_client.data_access.ThirdPartyDAO;
 import com.example.tpd_client.data_access.UserDAO;
 import com.example.tpd_client.models.User;
+import com.google.maps.model.LatLng;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -57,6 +59,14 @@ public class LoginServlet extends HttpServlet {
             }
             response.sendRedirect(request.getContextPath() + "/home");
         }
+        LatLng coordinates;
+        try {
+            coordinates = ThirdPartyDAO.getUserCoordinates();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        request.getSession().setAttribute("latitude", coordinates.lat);
+        request.getSession().setAttribute("longitude", coordinates.lng);
     }
 
     private String tryToLogin(HttpServletRequest request) {

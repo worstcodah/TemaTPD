@@ -14,7 +14,6 @@
     <link href="utils/button_link.css" rel="stylesheet" type="text/css">
     <link href="utils/layout.css" rel="stylesheet" type="text/css">
     <link href="utils/alert_box.css" rel="stylesheet" type="text/css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZoYW5wZv-wd3_WTwBJ7WaOyBRlPbmknE&libraries=places"></script>
 </head>
 <body>
 
