@@ -19,7 +19,7 @@ public class UserMotorcycleDAO {
 
     public static ArrayList<UserMotorcycle> getAllUserMotorcycles() throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:8080/TPD_Server-1.0-SNAPSHOT/api/user-motorcycles"))
+                .uri(URI.create("http://34.89.216.179:8080/entity-service/api/user-motorcycles"))
                 .header("Accept", "application/json")
                 .build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -33,7 +33,7 @@ public class UserMotorcycleDAO {
 
     public static List<Motorcycle> getMotorcyclesForUser(int userId) throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:8080/TPD_Server-1.0-SNAPSHOT/api/user-motorcycles/" + userId))
+                .uri(URI.create("http://34.89.216.179:8080/entity-service/api/user-motorcycles/" + userId))
                 .header("Accept", "application/json")
                 .build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -51,7 +51,7 @@ public class UserMotorcycleDAO {
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(userMotorcycle);
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:8080/TPD_Server-1.0-SNAPSHOT/api/user-motorcycles"))
+                .uri(URI.create("http://34.89.216.179:8080/TPD_Server-1.0-SNAPSHOT/api/user-motorcycles"))
                 .POST(HttpRequest.BodyPublishers.ofString(json))
                 .header("Accept", "application/json")
                 .build();
@@ -60,7 +60,7 @@ public class UserMotorcycleDAO {
 
     public static void delete(int userId, int motorcycleId) throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:8080/TPD_Server-1.0-SNAPSHOT/api/user-motorcycles/" +
+                .uri(URI.create("http://34.89.216.179:8080/TPD_Server-1.0-SNAPSHOT/api/user-motorcycles/" +
                         userId + "/" + motorcycleId))
                 .DELETE()
                 .header("Accept", "application/json")

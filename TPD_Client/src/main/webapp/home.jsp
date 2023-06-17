@@ -85,5 +85,30 @@
         </button>
     </form>
 </div>
+
+<div id="map">
+</div>
+<script>
+    function initMap() {
+        // Coordinates for the marker
+        var latitude = 37.7749; // Replace with your latitude
+        var longitude = -122.4194; // Replace with your longitude
+
+        // Create a map object centered on the specified coordinates
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: latitude, lng: longitude },
+            zoom: 12 // Adjust the zoom level as needed
+        });
+
+        // Create a marker on the specified coordinates
+        var marker = new google.maps.Marker({
+            position: { lat: latitude, lng: longitude },
+            map: map
+        });
+    }
+
+    // Call the initMap function when the Google Maps API is loaded
+    google.maps.event.addDomListener(window, 'load', initMap);
+</script>
 </body>
 </html>

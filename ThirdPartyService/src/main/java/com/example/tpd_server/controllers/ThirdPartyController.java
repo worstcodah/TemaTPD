@@ -7,7 +7,7 @@ import jakarta.ws.rs.*;
 
 import java.io.IOException;
 
-@Path("/third-party")
+@Path("/coordinates")
 public class ThirdPartyController {
     private static final ThirdPartyService thirdPartyService = new ThirdPartyService();
 

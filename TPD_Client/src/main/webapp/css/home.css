@@ -254,3 +254,12 @@ a{
     cursor: default;
     opacity: .24;
 }
+
+.third-party{
+
+}
+
+#map {
+    height: 400px;
+    width: 600px;
+}
