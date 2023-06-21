@@ -23,7 +23,8 @@
     </h1>
 </div>
 
-<div id="map"></div>
+<div class="wrapper">
+
 <div class="motorcycle-list">
     <h2>You own the following motorcycles:</h2>
     <div class="table">
@@ -78,6 +79,10 @@
 
     </div>
 </div>
+    <div class="map-wrapper">
+        <p>Google Cloud Platform VM location</p>
+        <div id="map"></div>
+    </div>
 <div class="buttons">
     <form method="post" class="buttons-form" action="${pageContext.request.contextPath}/home">
         <button role="button" class="blue-button" name="button" type="submit" value="logout">Log out</button>
@@ -85,6 +90,7 @@
             motorcycle list
         </button>
     </form>
+</div>
 </div>
 
 <script>

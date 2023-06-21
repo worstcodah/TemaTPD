@@ -262,4 +262,12 @@ a{
 #map {
     height: 400px;
     width: 600px;
+    margin-bottom: 3vh;
+}
+
+.map-wrapper{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
